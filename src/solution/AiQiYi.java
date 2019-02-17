@@ -72,13 +72,6 @@ public class AiQiYi {
         return A<B&&A<C?A:(B<C&&B<A?B:C);
     }
 
-
-
-
-
-
-
-
     public static void solution3(){
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
@@ -117,4 +110,30 @@ public class AiQiYi {
 
 
     }
+
+
+
+
+
+
+
+
+
+
+
+
+        public void solution11(){
+        }
+
+
+
+
+
+
+
+
+
+
+
+
 }

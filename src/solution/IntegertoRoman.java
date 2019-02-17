@@ -2,6 +2,9 @@ package solution;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author Achan
  * @date 2018/6/18 22:40
@@ -60,37 +63,21 @@ public class IntegertoRoman {
 
 		char[] romanNum = {'I', 'V', 'X', 'L', 'C', 'D', 'M'};
 		int[] intNum = {1, 5, 10, 50, 100, 500, 1000};
-
-		StringBuilder result = new StringBuilder();
-		for (int i = intNum.length - 1; i >= 0; i--) {
-			int count = num / intNum[i];
-			if (count != 0) {
-				StringBuilder temp = new StringBuilder();
-				if (count == 4) {
-					temp.append(romanNum[i]);
-					temp.append(romanNum[i + 1]);
-
-				} else {
-					for (int y = 0; y < count; y++) {
-						temp.append(romanNum[i]);
-					}
-				}
-				result.append(temp);
-				num %= intNum[i];
-				if (num == 0) {
-					break;
-				}
+		List<Character> result = new ArrayList<>();
+		for (int i = 7; i >= 0;){
+			num += intNum[i - 1];
+			if(num > intNum[i]){
+				result.add(romanNum[i]);
 			}
 		}
-		return result.toString();
+		return "";
+
 	}
 
 	@Test
 	public void test() {
-//		System.out.println(intToRoman(3));
 		System.out.println(intToRoman(4));
 		System.out.println(intToRoman(9));
-//		System.out.println(intToRoman(58));
 		System.out.println(intToRoman(1994));
 	}
 }
