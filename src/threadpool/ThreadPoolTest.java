@@ -21,24 +21,32 @@ public class ThreadPoolTest {
         //当 nowThreadSize = maximumPoolSize 执行任务拒绝策略 RejectedExecutionHandler
         //当 队列为空 且 nowThreadSize > corePoolSize时 空闲线程等待keepAliveTime后销毁
         //threadPoolExecutor.allowCoreThreadTimeOut(); 可令corePoolSize 内线程销毁
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(5, 5, 200, TimeUnit.MILLISECONDS, new ArrayBlockingQueue<Runnable>(10));
+//        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(5, 5, 200, TimeUnit.MILLISECONDS, new ArrayBlockingQueue<Runnable>(10));
+//
+//        //空闲线程回收 60s 无最大线程数限制 依赖操作系统
+//        ExecutorService cachedExcutor = Executors.newCachedThreadPool();
+//
+//        //单线程线程池 FIFO LIFO顺序执行
+//        ExecutorService singleThreadExecutor = Executors.newSingleThreadExecutor();
+//
 
-        //空闲线程回收 60s 无最大线程数限制 依赖操作系统
-        ExecutorService cachedExcutor = Executors.newCachedThreadPool();
+//
+//        //定量线程池，超出则等待
+//        ExecutorService fixedThreadPool = Executors.newFixedThreadPool(5);
 
-        //单线程线程池 FIFO LIFO顺序执行
-        ExecutorService singleThreadExecutor = Executors.newSingleThreadExecutor();
+        //可定期或延时执行的定长线程池 执行定时任务或周期性任务
+//        ScheduledExecutorService scheduledExecutorService = Executors.newScheduledThreadPool(5);
 
         //单线程定期或延时线程池
         ScheduledExecutorService singleScheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
 
-        //定量线程池，超出则等待
-        ExecutorService fixedThreadPool = Executors.newFixedThreadPool(5);
-
-        //可定期或延时执行的定长线程池 执行定时任务或周期性任务
-        ScheduledExecutorService scheduledExecutorService = Executors.newScheduledThreadPool(5);
-
-        ExecutorService workStealingPool = Executors.newWorkStealingPool();
+        int[] array = {1,2,3,4,5};
+        for (int i : array) {
+            singleScheduledExecutorService.schedule(()->{
+                System.out.println(System.currentTimeMillis() +"---------------"+i);
+            },i,TimeUnit.SECONDS);
+        }
+//        ExecutorService workStealingPool = Executors.newWorkStealingPool();
 
     }
 }
