@@ -2,6 +2,9 @@ package threadpool;
 
 import sun.nio.ch.ThreadPool;
 
+import java.math.BigDecimal;
+import java.util.HashMap;
+import java.util.Optional;
 import java.util.concurrent.*;
 
 public class ThreadPoolTest {
@@ -39,14 +42,23 @@ public class ThreadPoolTest {
 
         //单线程定期或延时线程池
         ScheduledExecutorService singleScheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
+//
+//        int[] array = {1,2,3,4,5};
+//        for (int i : array) {
+//            singleScheduledExecutorService.schedule(()->{
+//                System.out.println(Thread.currentThread().getName());
+//                System.out.println(System.currentTimeMillis() +"---------------"+i);
+//            },i,TimeUnit.SECONDS);
+//        }
 
-        int[] array = {1,2,3,4,5};
-        for (int i : array) {
-            singleScheduledExecutorService.schedule(()->{
-                System.out.println(System.currentTimeMillis() +"---------------"+i);
-            },i,TimeUnit.SECONDS);
-        }
 //        ExecutorService workStealingPool = Executors.newWorkStealingPool();
+
+//        System.out.println((8-1) & 4);
+
+        BigDecimal a  = null;
+        BigDecimal subtract = Optional.ofNullable(a).orElse(new BigDecimal(0)).subtract(new BigDecimal(1));
+
+        System.out.println(subtract.intValue());
 
     }
 }
