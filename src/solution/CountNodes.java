@@ -7,7 +7,7 @@ public class CountNodes {
 
 
     public int countNodes(TreeNode root) {
-
+return -1;
     }
 
 }
