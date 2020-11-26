@@ -22,12 +22,15 @@ public class ThreeSum {
 		LinkedList<List<Integer>> results = new LinkedList<>();
 		int len = nums.length;
 		for (int i = 0; i < len - 2; i++) {
+			//第一重循环跳过相同数字，避免重复的序列
 			if (i > 0 && nums[i] == nums[i - 1]) {
 				continue;
 			}
+			//数组有序，当前数大于0之后的数也大于0，和不可能为0
 			if (nums[i] > 0) {
 				break;
 			}
+			//在剩余数组中查找两数之和
 			int start = i + 1;
 			int end = len - 1;
 			while (start < end) {
@@ -39,6 +42,7 @@ public class ThreeSum {
 //					list.add(nums[start]);
 //					list.add(nums[end]);
 //					results.add(list);
+					//跳过相同数字
 					do {
 						start++;
 					} while (start < end && nums[start] == nums[start - 1]);
