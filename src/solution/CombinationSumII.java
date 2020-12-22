@@ -39,6 +39,37 @@ public class CombinationSumII {
 
 	@Test
 	public void test() {
+		CombinationSumII combinationSumII = new CombinationSumII();
+		List<List<Integer>> lists = combinationSumII.FindContinuousSequence(100);
+		for (List<Integer> list : lists) {
+			for (Integer integer : list) {
+				System.out.print(integer);
+			}
+			System.out.println();
+		}
 
-	}
+    }
+
+    public List<List<Integer>> FindContinuousSequence(int sum) {
+        List<List<Integer>> ret = new ArrayList<>();
+        int start = 1, end = 2;
+        int curSum = 3;
+        while (end < sum) {
+            if (curSum > sum) {
+                curSum -= start;
+                start++;
+            } else if (curSum < sum) {
+                end++;
+                curSum += end;
+            } else {
+                ArrayList<Integer> list = new ArrayList<>();
+                for (int i = start; i <= end; i++)
+                    list.add(i);
+                ret.add(list);
+                curSum -= start;
+                start++;
+            }
+        }
+        return ret;
+    }
 }
