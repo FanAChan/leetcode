@@ -11,7 +11,6 @@ public class FindLongestWord {
 
     public String findLongestWord(String s, List<String> d) {
 
-
         String result = "";
 
         for (String s1 : d) {
