@@ -41,7 +41,13 @@ public class ThreadPoolTest {
 //        ScheduledExecutorService scheduledExecutorService = Executors.newScheduledThreadPool(5);
 
         //单线程定期或延时线程池
-        ScheduledExecutorService singleScheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
+//        ScheduledExecutorService singleScheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
+
+
+        //-阿里开发手册不允许使用Executors创建默认设置的线程池，目的是更了解线程池的运行规则，避免资源耗尽的风险
+        //使用的是无界阻塞队列，有可能出现OOM
+        ScheduledThreadPoolExecutor singleScheduledExecutorService = new ScheduledThreadPoolExecutor(1);
+        singleScheduledExecutorService.setCorePoolSize(1);
 //
 //        int[] array = {1,2,3,4,5};
 //        for (int i : array) {
