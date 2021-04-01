@@ -15,11 +15,21 @@ public class TreeNode {
 
     public static TreeNode buildTree(int[] arrays){
 
-
-
-
-
-        return null;
-
+        TreeNode treeNode = buildTree(arrays, 0);
+        return treeNode;
     }
+
+    private static TreeNode buildTree(int[] arrays,int index){
+        if (index >= arrays.length || -1 == arrays[index]) {
+            return null;
+        }
+        TreeNode treeNode = new TreeNode(arrays[index]);
+
+        treeNode.left = buildTree(arrays,index * 2 + 1);
+        treeNode.right = buildTree(arrays,index * 2 + 2);
+        return treeNode;
+    }
+
+
+
 }
