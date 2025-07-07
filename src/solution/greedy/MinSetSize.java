@@ -1,9 +1,7 @@
 package solution.greedy;
 
-import javafx.util.Pair;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class MinSetSize {
 

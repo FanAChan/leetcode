@@ -3,9 +3,6 @@ package solution.greedy;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.Arrays;
-import java.util.HashMap;
-
 public class CanArrange {
 
     public boolean canArrange(int[] arr, int k) {

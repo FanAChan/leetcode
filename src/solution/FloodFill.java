@@ -1,6 +1,5 @@
 package solution;
 
-import javafx.util.Pair;
 import org.junit.Test;
 
 import java.util.Arrays;

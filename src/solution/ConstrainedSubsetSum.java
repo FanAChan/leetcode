@@ -1,6 +1,6 @@
 package solution;
 
-import javafx.util.Pair;
+import cn.hutool.core.lang.Pair;
 import org.junit.Assert;
 import org.junit.Test;
 
