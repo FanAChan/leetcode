@@ -4,6 +4,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+
+/**
+ *  while j = 0 || i = j
+ *      f(i)(j) = 1
+ *  else
+ *      f(i)(j) = f(i-1)f(j-1) + f(i-1)f(j)
+ */
 public class PascalTriangleII_119 {
 
 

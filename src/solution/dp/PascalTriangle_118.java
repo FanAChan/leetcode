@@ -3,14 +3,20 @@ package solution.dp;
 import java.util.ArrayList;
 import java.util.List;
 
+
+/**
+ *  while j = 0 || i = j
+ *      f(i)(j) = 1
+ *  else
+ *      f(i)(j) = f(i-1)f(j-1) + f(i-1)f(j)
+ */
 public class PascalTriangle_118 {
 
     public List<List<Integer>> generate(int numRows) {
 
         List<List<Integer>> result = new ArrayList<>();
 
-        //while j = 0 || i = j then f(i)(j) = 1
-        //else f(i)(j) = f(i-1)f(j-1) + f(i-1)f(j)
+
         List<Integer> preRowList = new ArrayList<>();
         int i = 0;
         while (i < numRows){
